@@ -1,0 +1,28 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "api.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "create": "claudia create --region us-east-1 --api-module api",
+    "update": "claudia update"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HubTicaBB/AuntMariasPizzeria.git"
+  },
+  "author": "TicaBB",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HubTicaBB/AuntMariasPizzeria/issues"
+  },
+  "homepage": "https://github.com/HubTicaBB/AuntMariasPizzeria#readme",
+  "devDependencies": {
+    "claudia": "^5.12.0"
+  },
+  "dependencies": {
+    "claudia-api-builder": "^4.1.2",
+    "claudia-bot-builder": "^4.5.0"
+  }
+}
