@@ -3,13 +3,10 @@
 const Api = require('claudia-api-builder');
 const api = new Api();
 
+const pizzas = require('./data/pizzas.json');
+
 api.get('/pizzas', () => {
-  return [
-    'Capricciosa',
-    'Quattro Formaggi',
-    'Napoletana',
-    'Margherita'
-  ]
+  return pizzas;
 });
 
 module.exports = api;
