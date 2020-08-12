@@ -2,6 +2,7 @@
 
 const AWS = require('aws-sdk');
 const docClient = new AWS.DynamoDB.DocumentClient();
+const uuid = require('uuid').v4;
 
 const createOrder = order => {
   if (!order || !order.pizzaId || !order.address) {
@@ -11,7 +12,7 @@ const createOrder = order => {
   return docClient.put({
     TableName: 'pizza-orders',
     Item: {
-      orderId: 'dummy_id',
+      orderId: uuid(),
       pizzaId: order.pizzaId,
       address: order.address,
       orderStatus: 'pending'
