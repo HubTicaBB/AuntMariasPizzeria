@@ -12,9 +12,11 @@ const updateOrder = (orderId, updates) => {
     TableName: 'pizza-orders',
     Key: { orderId: orderId },
     UpdateExpression: 'set pizzaId = :p, address = :a',
+    ConditionExpression: 'orderStatus = :o',
     ExpressionAttributeValues: {
       ':p' : updates.pizzaId,
-      ':a' : updates.address
+      ':a' : updates.address,
+      ':o' : 'pending'
     },
     ReturnValues: 'ALL_NEW'
   }).promise()

@@ -6,7 +6,9 @@ const docClient = new AWS.DynamoDB.DocumentClient();
 const getOrders = orderId => {
   if (typeof orderId === 'undefined') {
     return docClient.scan({
-      TableName: 'pizza-orders'
+      TableName: 'pizza-orders',
+      FilterExpression: 'orderStatus = :o',
+      ExpressionAttributeValues: { ':o': 'pending' }
     }).promise()
       .then(result => result.Items);
   }
