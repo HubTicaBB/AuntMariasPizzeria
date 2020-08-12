@@ -2,7 +2,7 @@
 
 const pizzas = require('../data/pizzas.json');
 
-const getPizzas = (pizzaId) => {
+const getPizzas = pizzaId => {
   if (!pizzaId) {
     return pizzas;
   }

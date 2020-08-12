@@ -8,7 +8,23 @@ const createOrder = order => {
     throw new Error('To order pizza please provide pizza type and address where pizza should be delivered.');
   }
 
-  return {};
+  return docClient.put({
+    TableName: 'pizza-orders',
+    Item: {
+      orderId: 'dummy_id',
+      pizzaId: order.pizzaId,
+      address: order.address,
+      orderStatus: 'pending'
+    }
+  }).promise()
+    .then(response => {
+      console.log('Order is saved!', console);
+      return response;
+    })
+    .catch(saveError => {
+      console.log(`Oops, order is not saved :(`, saveError);
+      throw saveError;
+    });
 }
 
 module.exports = createOrder;
