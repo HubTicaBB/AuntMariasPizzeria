@@ -18,12 +18,8 @@ const createOrder = order => {
       orderStatus: 'pending'
     }
   }).promise()
-    .then(response => {
-      console.log('Order is saved!', console);
-      return response;
-    })
+    .then(response => response)
     .catch(saveError => {
-      console.log(`Oops, order is not saved :(`, saveError);
       throw saveError;
     });
 }
